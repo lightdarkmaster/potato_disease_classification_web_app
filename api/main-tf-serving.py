@@ -30,14 +30,22 @@ async def ping():
     return "Hello, I am alive"
 
 def read_file_as_image(data) -> np.ndarray:
-    image = np.array(Image.open(BytesIO(data)))
+    try:
+        # Try to open the image using PIL
+        image = np.array(Image.open(BytesIO(data)))
+    except Exception as e:
+        # If it fails, assume it's a blob and decode it
+        try:
+            image = np.array(Image.open(BytesIO(bytes(data))))
+        except Exception as e:
+            raise HTTPException(status_code=400, detail="Invalid image data")
     return image
 
 @app.post("/predict")
 async def predict(
-    file: UploadFile = File(...)
+    blob_file: bytes = File(...)
 ):
-    image = read_file_as_image(await file.read())
+    image = read_file_as_image(blob_file)
     img_batch = np.expand_dims(image, 0)
 
     json_data = {
@@ -57,4 +65,3 @@ async def predict(
 
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)
-

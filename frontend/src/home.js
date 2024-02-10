@@ -135,9 +135,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#be6a77',
+    background: 'lightgreen',
     boxShadow: 'none',
-    color: 'white'
+    color: 'black'
   },
   loader: {
     color: '#be6a77 !important',
@@ -207,13 +207,20 @@ export const ImageUpload = () => {
   if (data) {
     confidence = (parseFloat(data.confidence) * 100).toFixed(2);
   }
-
+  const onCaptureImage = (capturedImageData) => {
+    // Here, you can directly use the captured image data (data URL) in your ImageUpload component
+    setSelectedFile(capturedImageData);
+    setData(undefined);
+    setImage(true);
+    setIsloading(true); // Assuming you want to trigger the image processing on capture
+    sendFile();
+  };
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            CodeBasics: Potato Disease Classification
+            Chan: Potato Disease Classification
           </Typography>
           <div className={classes.grow} />
           <Avatar src={cblogo}></Avatar>
@@ -235,7 +242,7 @@ export const ImageUpload = () => {
                   className={classes.media}
                   image={preview}
                   component="image"
-                  title="Contemplative Reptile"
+                  title="Image Sample"
                 />
               </CardActionArea>
               }

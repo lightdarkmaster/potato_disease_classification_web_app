@@ -1,0 +1,149 @@
+.camera-card {
+   background-image: url(./427071-1991230506.jpg);
+   background-repeat: no-repeat;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.camera-container{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+
+}
+.video-capture-container{
+    position: absolute;
+    top: 5px;
+    height: 90vh;
+    width: 95vh;
+    text-align: center;
+    margin-left: 50px;
+    justify-content: space-evenly;
+    border-radius: 20px;
+
+}
+.livePreview{
+    position: relative;
+    width: 500px;
+    height: 390px;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+.capturedImage{
+    background: rgba(128, 128, 128, 0.33);
+    position: relative;
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    border: 1px solid white;
+    width: 500px;
+    height: 400px;
+}
+.btnDiv{
+    position: absolute;
+    left: 30px;
+    width: 20%;
+    height: 70%;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    gap: 40px;
+}
+button{
+    cursor: pointer;
+}
+.startBtn{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background: rgba(139, 245, 139, 0.613);
+    border-radius: 10px;
+}
+.captureBtn{
+    background: rgb(214, 151, 15);
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    border: 0;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.captureBtn:hover{
+    background: rgb(255, 181, 21);
+}
+.clearBtn{
+    background: steelblue;
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.clearBtn:hover{
+    background: rgb(99, 185, 255);
+}
+.stopBtn{
+    background: red;
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.stopBtn:hover{
+    background: rgb(252, 89, 89);
+}
+.downloadBtn{
+    background: purple;
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.downloadBtn:hover{
+    background: rgb(255, 47, 255);
+}
+.processBtn{
+    background: rgb(50, 175, 0);
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.processBtn:hover{
+    background: rgb(65, 225, 1);
+}
+.reloadBtn{
+    background: rgb(0, 0, 0);
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    height: 70px;
+    box-shadow: 2px 2px 2px 2px rgba(30, 30, 30, 0.441);
+}
+.reloadBtn:hover{
+    background: rgb(36, 34, 34);
+}
