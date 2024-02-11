@@ -6,21 +6,31 @@ import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import StopCircleOutlinedIcon from "@mui/icons-material/StopCircleOutlined";
 import DownloadForOfflineOutlinedIcon from "@mui/icons-material/DownloadForOfflineOutlined";
 
-
-
 import { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress } from "@material-ui/core";
-import { DropzoneArea } from 'material-ui-dropzone';
-import Clear from '@material-ui/icons/Clear';
+import {
+  Paper,
+  CardActionArea,
+  CardMedia,
+  Grid,
+  TableContainer,
+  Table,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableCell,
+  Button,
+  CircularProgress,
+} from "@material-ui/core";
+import { DropzoneArea } from "material-ui-dropzone";
+import Clear from "@material-ui/icons/Clear";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { common } from '@material-ui/core/colors';
-import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-
+import { common } from "@material-ui/core/colors";
+import RefreshOutlinedIcon from "@mui/icons-material/RefreshOutlined";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 //width: "-webkit-fill-available", clearbutton
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    margin: 'auto',
+    margin: "auto",
     maxWidth: 500,
   },
   gridContainer: {
@@ -53,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "4em 1em 0 1em",
   },
   mainContainer: {
-    backgroundPosition: 'right',
+    backgroundPosition: "right",
     height: "90vh",
     marginTop: "8px",
     marginRight: "10%",
@@ -63,12 +73,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "-12%",
     maxWidth: 500,
     height: 600,
-    backgroundColor: 'transparent',
-    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
-    borderRadius: '15px',
+    backgroundColor: "transparent",
+    boxShadow: "0px 9px 70px 0px rgb(0 0 0 / 30%) !important",
+    borderRadius: "15px",
   },
   imageCardEmpty: {
-    height: 'auto',
+    height: "auto",
   },
   noImage: {
     margin: "auto",
@@ -76,70 +86,69 @@ const useStyles = makeStyles((theme) => ({
     height: "400 !important",
   },
   input: {
-    display: 'none',
+    display: "none",
   },
   uploadIcon: {
-    background: 'white',
+    background: "white",
   },
   tableContainer: {
-    backgroundColor: 'transparent !important',
-    boxShadow: 'none !important',
+    backgroundColor: "transparent !important",
+    boxShadow: "none !important",
   },
   table: {
-    backgroundColor: 'transparent !important',
+    backgroundColor: "transparent !important",
   },
   tableHead: {
-    backgroundColor: 'transparent !important',
+    backgroundColor: "transparent !important",
   },
   tableRow: {
-    backgroundColor: 'transparent !important',
+    backgroundColor: "transparent !important",
   },
   tableCell: {
-    fontSize: '22px',
-    backgroundColor: 'transparent !important',
-    borderColor: 'transparent !important',
-    color: '#000000a6 !important',
-    fontWeight: 'bolder',
-    padding: '1px 24px 1px 16px',
+    fontSize: "22px",
+    backgroundColor: "transparent !important",
+    borderColor: "transparent !important",
+    color: "#000000a6 !important",
+    fontWeight: "bolder",
+    padding: "1px 24px 1px 16px",
   },
   tableCell1: {
-    fontSize: '14px',
-    backgroundColor: 'transparent !important',
-    borderColor: 'transparent !important',
-    color: '#000000a6 !important',
-    fontWeight: 'bolder',
-    padding: '1px 24px 1px 16px',
+    fontSize: "14px",
+    backgroundColor: "transparent !important",
+    borderColor: "transparent !important",
+    color: "#000000a6 !important",
+    fontWeight: "bolder",
+    padding: "1px 24px 1px 16px",
   },
   tableBody: {
-    backgroundColor: 'transparent !important',
+    backgroundColor: "transparent !important",
   },
   text: {
-    color: 'white !important',
-    textAlign: 'center',
+    color: "white !important",
+    textAlign: "center",
   },
   buttonGrid: {
     maxWidth: "416px",
     width: "100%",
   },
   detail: {
-    backgroundColor: 'white',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
+    backgroundColor: "white",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   },
   appbar: {
-    background: 'lightgreen',
-    boxShadow: 'none',
-    color: 'black'
+    background: "lightgreen",
+    boxShadow: "none",
+    color: "black",
   },
   loader: {
-    color: '#be6a77 !important',
-  }
+    color: "#be6a77 !important",
+  },
 }));
 
 const CameraCard = () => {
-
   const classes = useStyles();
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
@@ -148,21 +157,17 @@ const CameraCard = () => {
   const [isLoading, setIsloading] = useState(false);
   let confidence = 0;
 
-
-
   const ColorButton = withStyles((theme) => ({
     root: {
       color: theme.palette.getContrastText(common.white),
       backgroundColor: common.white,
-      '&:hover': {
-        backgroundColor: '#ffffff7a',
+      "&:hover": {
+        backgroundColor: "#ffffff7a",
       },
     },
   }))(Button);
   const axios = require("axios").default;
-  
 
-  
   const sendFile = async () => {
     if (image) {
       let formData = new FormData();
@@ -177,69 +182,56 @@ const CameraCard = () => {
       }
       setIsloading(false);
     }
-  }
-  
-    const clearData = () => {
-      setData(null);
-      setImage(false);
-      setSelectedFile(null);
-      setPreview(null);
-    };
-    useEffect(() => {
-      if (!selectedFile) {
-        setPreview(undefined);
-        return;
-      }
-      const objectUrl = URL.createObjectURL(selectedFile);
-      setPreview(objectUrl);
-    }, [selectedFile]);
-  
-    useEffect(() => {
-      if (!preview) {
-        return;
-      }
-      setIsloading(true);
-      sendFile();
-      sendFileImage();
-    }, [preview]);
+  };
 
-
-    const onSelectFile = (files) => {
-      if (!files || files.length === 0) {
-        setSelectedFile(undefined);
-        setImage(false);
-        setData(undefined);
-        return;
-      }
-      setSelectedFile(files[0]);
-      setData(undefined);
-      setImage(true);
-    };
-
-    if (data) {
-      confidence = (parseFloat(data.confidence) * 100).toFixed(2);
+  const clearData = () => {
+    setData(null);
+    setImage(false);
+    setSelectedFile(null);
+    setPreview(null);
+  };
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
     }
-    const onCaptureImage = (capturedImageData) => {
-      // Here, you can directly use the captured image data (data URL) in your ImageUpload component
-      setPreview(capturedImageData);
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+  }, [selectedFile]);
+
+  useEffect(() => {
+    if (!preview) {
+      return;
+    }
+    setIsloading(true);
+    sendFile();
+    sendFileImage();
+  }, [preview]);
+
+  const onSelectFile = (files) => {
+    if (!files || files.length === 0) {
+      setSelectedFile(undefined);
+      setImage(false);
       setData(undefined);
-      setImage(true);
-      setIsloading(true); // Assuming you want to trigger the image processing on capture
-      sendFile();
-      sendFileImage();
-    };
+      return;
+    }
+    setSelectedFile(files[0]);
+    setData(undefined);
+    setImage(true);
+  };
 
-
-
-
-
-
-
-
-
-
-
-
+  if (data) {
+    confidence = (parseFloat(data.confidence) * 100).toFixed(2);
+  }
+  const onCaptureImage = (capturedImageData) => {
+    // Here, you can directly use the captured image data (data URL) in your ImageUpload component
+    setData(undefined);
+    setImage(true);
+    setIsloading(true); // Assuming you want to trigger the image processing on capture
+    sendFile();
+    processImage();
+    sendFileImage();
+  };
 
   // State to manage the camera stream
   const [stream, setStream] = useState(null);
@@ -309,16 +301,21 @@ const CameraCard = () => {
     }
   };
 
-    // Function to apply image enhancements
-    const enhanceImage = (context) => {
-      // Example: Apply a sharpening filter
-      const imageData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
-      // Apply sharpening algorithm to imageData
-      // Replace the imageData on the canvas
-      context.putImageData(imageData, 0, 0);
-  
-      // Other enhancements (noise reduction, contrast adjustment) can be implemented similarly
-    };
+  // Function to apply image enhancements
+  const enhanceImage = (context) => {
+    // Example: Apply a sharpening filter
+    const imageData = context.getImageData(
+      0,
+      0,
+      context.canvas.width,
+      context.canvas.height
+    );
+    // Apply sharpening algorithm to imageData
+    // Replace the imageData on the canvas
+    context.putImageData(imageData, 0, 0);
+
+    // Other enhancements (noise reduction, contrast adjustment) can be implemented similarly
+  };
 
   // Function to clear the captured image
   const clearCapture = () => {
@@ -326,10 +323,9 @@ const CameraCard = () => {
     if (canvasRef.current) {
       // Get the 2D drawing context of the canvas and clear it
       const context = canvasRef.current.getContext("2d");
-      context.clearRect(0, 0, 300, 200); // Adjust dimensions as needed
+      context.clearRect(0, 0, 700, 600); // Adjust dimensions as needed
     }
   };
-
 
   const downloadImage = () => {
     // Get the data URL of the captured image from the canvas
@@ -348,30 +344,37 @@ const CameraCard = () => {
     downloadLink.click();
   };
 
-  
   const processImage = () => {
     if (canvasRef.current && videoRef.current) {
       const ctx = canvasRef.current.getContext("2d");
-      
+
       // Set canvas dimensions to match video dimensions
       canvasRef.current.width = videoRef.current.videoWidth;
       canvasRef.current.height = videoRef.current.videoHeight;
-  
+
       // Draw the current frame of the video onto the canvas
-      ctx.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
-  
+      ctx.drawImage(
+        videoRef.current,
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
+
       // Get the data URL of the captured image from the canvas
       const dataUrl = canvasRef.current.toDataURL("image/jpeg");
-  
+
       // Create a FormData object
       const formData = new FormData();
-  
+
       // Convert the data URL to a Blob
       const blob = dataURLtoBlob(dataUrl);
-  
+
+        // Pass the blob to the setSelectedFile function
+    setSelectedFile(blob);
       // Append the Blob to the FormData object
       formData.append("file", blob);
-  
+
       // Send the file to the server
       setIsloading(true);
       //sendFile(formData);
@@ -380,10 +383,9 @@ const CameraCard = () => {
     }
   };
 
-
   // Function to convert a data URL to a Blob
   const dataURLtoBlob = (dataUrl) => {
-    const arr = dataUrl.split(',');
+    const arr = dataUrl.split(",");
     const mime = arr[0].match(/:(.*?);/)[1];
     const bstr = atob(arr[1]);
     let n = bstr.length;
@@ -394,23 +396,22 @@ const CameraCard = () => {
     return new Blob([u8arr], { type: mime });
   };
 
-
   const sendFileImage = async (blob) => {
     try {
       const formData = new FormData();
-      formData.append('file', blob);
-      
+      formData.append("file", blob);
+
       const response = await axios({
         method: "post",
         url: process.env.REACT_APP_API_URL,
         data: formData,
       });
-  
+
       if (response.status === 200) {
         // Handle successful response
         console.log("Image sent successfully!");
       } else {
-            setIsloading(false);
+        setIsloading(false);
 
         // Handle other response statuses
         console.error("Failed to send image.");
@@ -420,17 +421,18 @@ const CameraCard = () => {
       console.error("Error sending image:", error);
     }
   };
-  
-  
 
-const refreshPage = () => {
-      window.location.reload();
-    };
-    
-  
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="camera-card">
-      <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
+      <Container
+        maxWidth={false}
+        className={classes.mainContainer}
+        disableGutters={true}
+      >
         <Grid
           className={classes.gridContainer}
           container
@@ -444,17 +446,20 @@ const refreshPage = () => {
             {/* Video element to display the camera stream */}
             {stream && (
               <div className="video-capture-container">
-                <video className="livePreview" ref={videoRef} autoPlay playsInline />
+                <video
+                  className="livePreview"
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                />
 
-                
-                  <canvas
-                    className="capturedImage"
-                    ref={canvasRef}
-                    position="relative"
-                    width="300"
-                    height="200"
-                  />
-             
+                <canvas
+                  className="capturedImage"
+                  ref={canvasRef}
+                  position="relative"
+                  width="300"
+                  height="200"
+                />
 
                 {/* Buttons for capturing, clearing, and stopping the camera */}
                 <div className="btnDiv">
@@ -497,57 +502,90 @@ const refreshPage = () => {
 
           {/* Container Section */}
           <Grid item xs={12} md={6}>
-  <Card className={`${classes.imageCard} ${!image ? classes.imageCardEmpty : ''}`}>
-    {preview && (
-      <CardActionArea>
-        <CardMedia className={classes.media} image={preview} component="img" title="Image Sample" />
-      </CardActionArea>
-    )}
-    {!image && (
-      <CardContent className={classes.content}>
-        <DropzoneArea
-          acceptedFiles={['image/*']}
-          dropzoneText={"Potato Image Captured using Camera Will Be Processed Here"}
-          onChange={onSelectFile}
-        />
-      </CardContent>
-    )}
-    {data && (
-      <CardContent className={classes.detail}>
-        <TableContainer component={Paper} className={classes.tableContainer}>
-          <Table className={classes.table} size="small" aria-label="simple table">
-            <TableHead className={classes.tableHead}>
-              <TableRow className={classes.tableRow}>
-                <TableCell className={classes.tableCell1}>Label:</TableCell>
-                <TableCell align="right" className={classes.tableCell1}>
-                  Confidence:
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody className={classes.tableBody}>
-              <TableRow className={classes.tableRow}>
-                <TableCell component="th" scope="row" className={classes.tableCell}>
-                  {data.class}
-                </TableCell>
-                <TableCell align="right" className={classes.tableCell}>
-                  {confidence}%
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </CardContent>
-    )}
-    {isLoading && (
-      <CardContent className={classes.detail}>
-        <CircularProgress color="secondary" className={classes.loader} />
-        <Typography className={classes.title} variant="h6" noWrap>
-          Processing
-        </Typography>
-      </CardContent>
-    )}
-  </Card>
-</Grid>
+            <Card
+              className={`${classes.imageCard} ${
+                !image ? classes.imageCardEmpty : ""
+              }`}
+            >
+              {preview && (
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={preview}
+                    component="img"
+                    title="Image Sample"
+                  />
+                </CardActionArea>
+              )}
+              {!image && (
+                <CardContent className={classes.content}>
+                  <DropzoneArea
+                    acceptedFiles={["image/*"]}
+                    dropzoneText={
+                      "Potato Image Captured using Camera Will Be Processed Here"
+                    }
+                    onChange={onSelectFile}
+                  />
+                </CardContent>
+              )}
+              {data && (
+                <CardContent className={classes.detail}>
+                  <TableContainer
+                    component={Paper}
+                    className={classes.tableContainer}
+                  >
+                    <Table
+                      className={classes.table}
+                      size="small"
+                      aria-label="simple table"
+                    >
+                      <TableHead className={classes.tableHead}>
+                        <TableRow className={classes.tableRow}>
+                          <TableCell className={classes.tableCell1}>
+                            Label:
+                          </TableCell>
+                          <TableCell
+                            align="right"
+                            className={classes.tableCell1}
+                          >
+                            Confidence:
+                          </TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody className={classes.tableBody}>
+                        <TableRow className={classes.tableRow}>
+                          <TableCell
+                            component="th"
+                            scope="row"
+                            className={classes.tableCell}
+                          >
+                            {data.class}
+                          </TableCell>
+                          <TableCell
+                            align="right"
+                            className={classes.tableCell}
+                          >
+                            {confidence}%
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </CardContent>
+              )}
+              {isLoading && (
+                <CardContent className={classes.detail}>
+                  <CircularProgress
+                    color="secondary"
+                    className={classes.loader}
+                  />
+                  <Typography className={classes.title} variant="h6" noWrap>
+                    Processing
+                  </Typography>
+                </CardContent>
+              )}
+            </Card>
+          </Grid>
 
           {data && (
             <Grid item className={classes.buttonGrid}>
