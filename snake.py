@@ -1,4 +1,6 @@
 # import required modules
+
+# yaing ine na snake gg makuri ha keyboard
 import turtle
 import time
 import random
