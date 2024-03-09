@@ -19,6 +19,8 @@ wn.bgcolor("blue")
 wn.setup(width=600, height=600)
 wn.tracer(0)
 
+
+#paghimo han aton snake
 # head of the snake
 head = turtle.Turtle()
 head.shape("square")
