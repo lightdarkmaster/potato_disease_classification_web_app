@@ -29,6 +29,7 @@ head.penup()
 head.goto(0, 0)
 head.direction = "Stop"
 
+# pagkaun han halas naton 
 # food in the game
 food = turtle.Turtle()
 colors = random.choice(['red', 'green', 'black'])
