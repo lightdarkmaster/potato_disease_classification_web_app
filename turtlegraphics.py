@@ -26,3 +26,5 @@ draw_attractive_design2()
 turtle.done()
 
 ## end of the code here...
+
+print("done")
