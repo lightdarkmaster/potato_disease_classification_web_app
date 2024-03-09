@@ -1,6 +1,7 @@
 # import required modules
 
 # yaing ine na snake gg makuri ha keyboard
+
 import turtle
 import time
 import random
@@ -9,7 +10,7 @@ delay = 0.1
 score = 0
 high_score = 0
 
-
+# paghimo hin another window screen to pop up hine na game...
 # Creating a window screen
 wn = turtle.Screen()
 wn.title("Snake Game")
