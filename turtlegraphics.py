@@ -1,5 +1,9 @@
 import turtle
 
+
+#run this code to see an amazing turtle graphics
+
+
 def draw_attractive_design2():
     colors = ["red", "orange", "yellow", "green", "blue", "purple"]
     pen = turtle.Turtle()
