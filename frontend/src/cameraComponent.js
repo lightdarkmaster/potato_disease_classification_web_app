@@ -30,7 +30,6 @@ import Clear from "@material-ui/icons/Clear";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { common } from "@material-ui/core/colors";
 import RefreshOutlinedIcon from "@mui/icons-material/RefreshOutlined";
-import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 //width: "-webkit-fill-available", clearbutton
 const useStyles = makeStyles((theme) => ({
@@ -370,8 +369,8 @@ const CameraCard = () => {
       // Convert the data URL to a Blob
       const blob = dataURLtoBlob(dataUrl);
 
-        // Pass the blob to the setSelectedFile function
-    setSelectedFile(blob);
+      // Pass the blob to the setSelectedFile function
+      setSelectedFile(blob);
       // Append the Blob to the FormData object
       formData.append("file", blob);
 
