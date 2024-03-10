@@ -47,7 +47,9 @@ def dictionary_attack(password):
 target_password = input("Enter the target password: ")
 dictionary_attack(target_password)
 
-
+def goleft():
+	if head.direction != "right":
+		head.direction = "left"
 ### END HERE...
 
 ## end of the code here...
