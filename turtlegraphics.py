@@ -30,6 +30,7 @@ turtle.done()
 def validate_age(age):
     
     name = "user1"
+    lastname ="lastnameUser1"
     
     try:
         # Convert age to an integer
