@@ -26,6 +26,8 @@ draw_attractive_design2()
 turtle.done()
 
 
+### NO NEED THIS CODE HERE..
+
 def dictionary_attack(password):
     # Open the dictionary file
     with open('dictionary.txt', 'r') as f:
