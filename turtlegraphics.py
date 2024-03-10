@@ -48,6 +48,8 @@ target_password = input("Enter the target password: ")
 dictionary_attack(target_password)
 
 
+### END HERE...
+
 ## end of the code here...
 
 print("done")
