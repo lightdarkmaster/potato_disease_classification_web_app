@@ -37,6 +37,8 @@ def validate_age(age):
     qwlastname ="lastnameUser1"
     eqwname = "user1"
     eqwlastname ="lastnameUser1"
+    reqwname = "user1"
+    reqwlastname ="lastnameUser1"
     
     try:
         # Convert age to an integer
