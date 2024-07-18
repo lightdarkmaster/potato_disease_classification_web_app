@@ -89,6 +89,7 @@ uvicorn main:app --reload --host 0.0.0.0
 ```bash
 cd api
 ```
+///add docu
 
 2. Copy the `models.config.example` as `models.config` and update the paths in file.
 3. Run the TF Serve (Update config file path below)

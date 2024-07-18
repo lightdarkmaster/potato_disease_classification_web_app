@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.6.8",
     "draggable": "^4.2.0",
     "react-draggable": "^4.4.6"
   }
