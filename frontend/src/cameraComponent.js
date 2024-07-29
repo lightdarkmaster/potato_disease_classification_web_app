@@ -30,6 +30,7 @@ import Clear from "@material-ui/icons/Clear";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { common } from "@material-ui/core/colors";
 import RefreshOutlinedIcon from "@mui/icons-material/RefreshOutlined";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 //width: "-webkit-fill-available", clearbutton
 const useStyles = makeStyles((theme) => ({
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imageCard: {
     margin: "auto",
-    marginRight: "-12%",
+    marginRight: "-17%",
     maxWidth: 500,
     height: 600,
     backgroundColor: "transparent",
@@ -369,8 +370,8 @@ const CameraCard = () => {
       // Convert the data URL to a Blob
       const blob = dataURLtoBlob(dataUrl);
 
-      // Pass the blob to the setSelectedFile function
-      setSelectedFile(blob);
+        // Pass the blob to the setSelectedFile function
+    setSelectedFile(blob);
       // Append the Blob to the FormData object
       formData.append("file", blob);
 
@@ -521,7 +522,7 @@ const CameraCard = () => {
                   <DropzoneArea
                     acceptedFiles={["image/*"]}
                     dropzoneText={
-                      "Potato Image Captured using Camera Will Be Processed Here"
+                      "Capture Leaf Image Will Be Processed Here"
                     }
                     onChange={onSelectFile}
                   />
@@ -543,12 +544,7 @@ const CameraCard = () => {
                           <TableCell className={classes.tableCell1}>
                             Label:
                           </TableCell>
-                          <TableCell
-                            align="right"
-                            className={classes.tableCell1}
-                          >
-                            Confidence:
-                          </TableCell>
+                          
                         </TableRow>
                       </TableHead>
                       <TableBody className={classes.tableBody}>
