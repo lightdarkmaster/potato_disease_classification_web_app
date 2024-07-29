@@ -66,3 +66,7 @@ async def predict(
 
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)
+
+
+# Todo: Fix this for productions purpose...
+# Solve for the Invalid HTTP request Received error..
